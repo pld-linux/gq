@@ -5,7 +5,7 @@ Summary(pt_BR):	Navegador gráfico para LDAP
 Name:		gq
 Version:	1.0
 %define	bver	beta1
-Release:	0.%{bver}.1
+Release:	0.%{bver}.2
 License:	GPL
 Group:		Networking/Utilities
 Source0:	http://dl.sourceforge.net/gqclient/%{name}-%{version}%{bver}.tar.gz
