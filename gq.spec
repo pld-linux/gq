@@ -19,7 +19,6 @@ BuildRequires:	libtool
 BuildRequires:	openldap-devel >= 2.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_prefix		/usr/X11R6
 
 %description
 GQ is GTK+ LDAP client and browser utility. It can be used for
