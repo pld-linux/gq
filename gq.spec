@@ -1,8 +1,9 @@
 Summary:	Interactive graphical LDAP browser
 Summary(pl):	Klientem i przegl±darka LDAP
+Summary(pt_BR):	Navegador gráfico para LDAP
 Name:		gq
 Version:	0.4.0
-Release:	3
+Release:	6
 License:	GPL
 Group:		Networking/Utilities
 Source0:	http://biot.com/gq/download/%{name}-%{version}.tar.gz
@@ -10,7 +11,10 @@ Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-init.patch
 URL:		http://biot.com/gq/
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	gtk+-devel >= 1.2.0
+BuildRequires:	libtool
 BuildRequires:	openldap-devel >= 2.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -27,12 +31,22 @@ Mo¿na go uzyæ do przeszukiwania katalogu LDAP oraz przegl±dania go w
 formie drzewa. Posiada równie¿ (w ograniczonym stopniu) mo¿liwo¶æ
 dodawania i modyfikacji danych.
 
+%description -l pt_BR
+GQ é um client LDAP feito em GTK+. Ele pode ser usado para pesquisar
+diretórios LDAP e também para visualizar um diretório em forma de
+árvore. Também existem recursos de edição e inserção de registros,
+embora um pouco limitados.
+
 %prep
 %setup -q
 %patch0 -p1
 
 %build
-%configure2_13
+rm -f missing
+aclocal
+autoconf
+automake -a -c -f
+%configure
 %{__make}
 
 %install
