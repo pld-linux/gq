@@ -7,6 +7,7 @@ Release:	1
 License:	GPL
 Group:		Networking/Utilities
 Source0:	http://biot.com/gq/download/%{name}-%{version}.tar.gz
+# Source0-md5:	ecd8f3afd7ad9a620ecc3c8e172e02dd
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-init.patch
