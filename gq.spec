@@ -34,7 +34,7 @@ dodawania i modyfikacji danych.
 %patch0 -p1
 
 %build
-%configure
+%configure2_13
 %{__make}
 
 %install
