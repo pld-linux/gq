@@ -2,14 +2,15 @@ Summary:	Interactive graphical LDAP browser
 Summary(pl):	Klientem i przegl±darka LDAP
 Summary(pt_BR):	Navegador gráfico para LDAP
 Name:		gq
-Version:	0.5.0
-Release:	2
+Version:	0.6.0beta2
+Release:	1
 License:	GPL
 Group:		Networking/Utilities
 Source0:	http://biot.com/gq/download/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-init.patch
+Patch1:		%{name}-passwd_visibility.patch
 URL:		http://biot.com/gq/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -40,6 +41,7 @@ embora um pouco limitados.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 rm -f missing
@@ -58,14 +60,14 @@ install -d $RPM_BUILD_ROOT{%{_applnkdir}/Network/Misc,%{_pixmapsdir}}
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Network/Misc/gq.desktop
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 
-gzip -9nf README ChangeLog NEWS TODO AUTHORS
+%find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc *.gz
+%doc README* ChangeLog NEWS TODO AUTHORS
 %attr(755,root,root) %{_bindir}/*
 %{_applnkdir}/Network/Misc/gq.desktop
 %{_pixmapsdir}/*
