@@ -3,7 +3,7 @@ Summary(pl):	Klientem i przegl±darka LDAP
 Summary(pt_BR):	Navegador gráfico para LDAP
 Name:		gq
 Version:	0.6.0beta2
-Release:	1
+Release:	2
 License:	GPL
 Group:		Networking/Utilities
 Source0:	http://biot.com/gq/download/%{name}-%{version}.tar.gz
@@ -56,11 +56,11 @@ rm -f missing
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_applnkdir}/Network/Misc,%{_pixmapsdir}}
+install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}}
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Network/Misc/gq.desktop
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}/gq.desktop
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %find_lang %{name}
@@ -72,5 +72,5 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README* ChangeLog NEWS TODO AUTHORS
 %attr(755,root,root) %{_bindir}/*
-%{_applnkdir}/Network/Misc/gq.desktop
 %{_pixmapsdir}/*
+%{_desktopdir}/*
