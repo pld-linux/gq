@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Cheops
+Comment=LDAP Client
+Comment[pl]=Klient LDAP
+Exec=gq
+Terminal=0
+Type=Application
