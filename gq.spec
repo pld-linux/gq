@@ -2,8 +2,8 @@ Summary:	Interactive graphical LDAP browser
 Summary(pl):	Klientem i przegl±darka LDAP
 Summary(pt_BR):	Navegador gráfico para LDAP
 Name:		gq
-Version:	0.4.0
-Release:	6
+Version:	0.5.0
+Release:	2
 License:	GPL
 Group:		Networking/Utilities
 Source0:	http://biot.com/gq/download/%{name}-%{version}.tar.gz
