@@ -10,7 +10,7 @@ Source0:	http://biot.com/gq/download/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-init.patch
-Patch1:		%{name}-passwd_visibility.patch
+Patch1:		%{name}-passwd.patch
 URL:		http://biot.com/gq/
 BuildRequires:	autoconf
 BuildRequires:	automake
