@@ -1,16 +1,17 @@
 Summary:	Interactive graphical LDAP browser
 Summary(pl):	Klientem i przegl±darka LDAP
 Name:		gq
-Version:	0.2.3
-Release:	2
+Version:	0.3.0
+Release:	1
 License:	GPL
 Group:		Networking/Utilities
+Group(de):	Netzwerkwesen/Werkzeuge
 Group(pl):	Sieciowe/Narzêdzia
-Source0:	ftp://gqclient.sourceforge.net/pub/gqclient/%{name}-%{version}.tar.gz
-Source1:	gq.desktop
+Source0:	http://biot.com/gq/download/%{name}-%{version}.tar.gz
+Source1:	%{name}.desktop
 URL:		http://biot.com/gq/
 BuildRequires:	gtk+-devel >= 1.2.0
-BuildRequires:	openldap-devel
+BuildRequires:	openldap-devel >= 2.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -30,7 +31,6 @@ dodawania i modyfikacji danych.
 %setup -q
 
 %build
-LDFLAGS="-s"; export LDFLAGS
 %configure
 %{__make}
 
@@ -42,7 +42,7 @@ install -d $RPM_BUILD_ROOT%{_applnkdir}/Network/Misc
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Network/Misc/gq.desktop
 
-gzip -9nf {README,ChangeLog,NEWS,TODO,AUTHORS}
+gzip -9nf README ChangeLog NEWS TODO AUTHORS
 
 %clean
 rm -rf $RPM_BUILD_ROOT
