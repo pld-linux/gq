@@ -1,27 +1,31 @@
+# TODO: "Schema" tab crashes
 Summary:	Interactive graphical LDAP browser
 Summary(pl):	Klientem i przegl±darka LDAP
 Summary(pt_BR):	Navegador gráfico para LDAP
 Name:		gq
-Version:	0.6.0beta2
-Release:	4
+Version:	1.0
+%define	bver	beta1
+Release:	0.%{bver}.1
 License:	GPL
 Group:		Networking/Utilities
-Source0:	http://biot.com/gq/download/%{name}-%{version}.tar.gz
-# Source0-md5:	ecd8f3afd7ad9a620ecc3c8e172e02dd
-Source1:	%{name}.desktop
-Source2:	%{name}.png
-Patch0:		%{name}-init.patch
-Patch1:		%{name}-passwd.patch
-Patch2:		%{name}-mkinstalldirs.patch
+Source0:	http://dl.sourceforge.net/gqclient/%{name}-%{version}%{bver}.tar.gz
+# Source0-md5:	c904ff52f513a58516d9543f8dc3fe5b
+Source1:	http://dl.sourceforge.net/gqclient/%{name}-%{version}%{bver}-langpack-1.tar.gz
+# Source1-md5:	4194453e76aed15994c5c4e5c3aee6d5
+Source2:	%{name}.desktop
+Source3:	%{name}.png
+Patch0:		%{name}-iconv-in-libc.patch
+Patch1:		%{name}-po.patch
 URL:		http://biot.com/gq/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gtk+-devel >= 1.2.0
+BuildRequires:	cyrus-sasl-devel
+BuildRequires:	gtk+2-devel >= 2.0.0
 BuildRequires:	libtool
 BuildRequires:	gettext-devel
 BuildRequires:	openldap-devel >= 2.0.0
+BuildRequires:	openssl-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
 
 %description
 GQ is GTK+ LDAP client and browser utility. It can be used for
@@ -41,15 +45,18 @@ diretórios LDAP e também para visualizar um diretório em forma de
 embora um pouco limitados.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}%{bver} -a1
+mv -f %{name}-%{version}%{bver}-langpack-*/po/*.po po
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
+
+%{__perl} -pi -e 's/(ALL_LINGUAS=)/$1"cs de ja zh_CN"/' configure.in
 
 %build
-rm -f missing
+%{__gettextize}
 %{__aclocal}
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure
 %{__make}
@@ -58,10 +65,11 @@ rm -f missing
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}}
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}/gq.desktop
-install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
+install %{SOURCE2} $RPM_BUILD_ROOT%{_desktopdir}/gq.desktop
+install %{SOURCE3} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %find_lang %{name}
 
@@ -70,7 +78,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc README* ChangeLog NEWS TODO AUTHORS
+%doc AUTHORS ChangeLog NEWS README README.TLS TODO
 %attr(755,root,root) %{_bindir}/*
-%{_pixmapsdir}/*
-%{_desktopdir}/*
+%{_pixmapsdir}/gq
+%{_pixmapsdir}/gq.png
+%{_desktopdir}/*.desktop
