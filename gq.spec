@@ -1,6 +1,6 @@
 # TODO: "Schema" tab crashes
 Summary:	Interactive graphical LDAP browser
-Summary(pl):	Klientem i przegl±darka LDAP
+Summary(pl):	Klient i przegl±darka LDAP
 Summary(pt_BR):	Navegador gráfico para LDAP
 Name:		gq
 Version:	1.0
