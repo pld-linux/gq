@@ -12,6 +12,7 @@ Source1:	%{name}.desktop
 Source2:	%{name}.png
 Patch0:		%{name}-init.patch
 Patch1:		%{name}-passwd.patch
+Patch2:		%{name}-mkinstalldirs.patch
 URL:		http://biot.com/gq/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -42,6 +43,7 @@ embora um pouco limitados.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 rm -f missing
