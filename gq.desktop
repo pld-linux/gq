@@ -2,6 +2,7 @@
 Name=Gq
 Comment=Interactive graphical LDAP browser
 Comment[pl]=Klient LDAP
+Icon=gq.png
 Exec=gq
 Terminal=0
 Type=Application
