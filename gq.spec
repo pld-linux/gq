@@ -16,6 +16,7 @@ Source2:	%{name}.desktop
 Source3:	%{name}.png
 Patch0:		%{name}-iconv-in-libc.patch
 Patch1:		%{name}-po.patch
+Patch2:		%{name}-sigsegv_openldap_2_2.patch
 URL:		http://biot.com/gq/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -51,6 +52,7 @@ embora um pouco limitados.
 mv -f %{name}-%{version}%{bver}-langpack-*/po/*.po po
 %patch0 -p1
 %patch1 -p1
+%patch1 -p2
 
 %{__perl} -pi -e 's/(ALL_LINGUAS=)/$1"cs de ja zh_CN"/' configure.in
 
