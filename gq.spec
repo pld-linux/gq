@@ -52,7 +52,7 @@ embora um pouco limitados.
 mv -f %{name}-%{version}%{bver}-langpack-*/po/*.po po
 %patch0 -p1
 %patch1 -p1
-%patch1 -p2
+%patch2 -p1
 
 %{__perl} -pi -e 's/(ALL_LINGUAS=)/$1"cs de ja zh_CN"/' configure.in
 
