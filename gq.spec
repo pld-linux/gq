@@ -21,9 +21,9 @@ URL:		http://biot.com/gq/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	cyrus-sasl-devel
+BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel >= 1:2.0.0
 BuildRequires:	libtool
-BuildRequires:	gettext-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	openldap-devel >= 2.0.0
 BuildRequires:	openssl-devel
