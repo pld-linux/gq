@@ -1,6 +1,6 @@
 [Desktop Entry]
-Name=Cheops
-Comment=LDAP Client
+Name=Gq
+Comment=Interactive graphical LDAP browser
 Comment[pl]=Klient LDAP
 Exec=gq
 Terminal=0
