@@ -21,6 +21,12 @@ GQ is GTK+ LDAP client and browser utility. It can be used
 for searching LDAP directory as well as browsing it using
 tree view. It has limited modify/add functionality, too.
 
+%description -l pl
+GQ jest napisanym przy u¿yciu GTK+ klientem oraz przegl±dark± LDAP.
+Mo¿na go uzyæ do przeszukiwania katalogu LDAP oraz przegl±dania go
+w formie drzewa. Posiada równie¿ (w ograniczonym stopniu) mo¿liwo¶æ
+dodawania i modyfikacji danych.
+
 %prep
 %setup -q
 
