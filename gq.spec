@@ -2,21 +2,20 @@ Summary:	Interactive graphical LDAP browser
 Summary(pl):	Klientem i przegl±darka LDAP
 Summary(pt_BR):	Navegador gráfico para LDAP
 Name:		gq
-Version:	0.6.0beta2
-Release:	4
+Version:	1.0beta1
+Release:	1
+Epoch:		0
 License:	GPL
 Group:		Networking/Utilities
-Source0:	http://biot.com/gq/download/%{name}-%{version}.tar.gz
-# Source0-md5:	ecd8f3afd7ad9a620ecc3c8e172e02dd
+Source0:	http://dl.sourceforge.net/sourceforge/%{name}client/%{name}-%{version}.tar.gz
+# Source0-md5:	c904ff52f513a58516d9543f8dc3fe5b
 Source1:	%{name}.desktop
 Source2:	%{name}.png
-Patch0:		%{name}-init.patch
-Patch1:		%{name}-passwd.patch
-Patch2:		%{name}-mkinstalldirs.patch
+Patch0:		%{name}-mkinstalldirs.patch
 URL:		http://biot.com/gq/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gtk+-devel >= 1.2.0
+BuildRequires:	gtk+2-devel
 BuildRequires:	libtool
 BuildRequires:	gettext-devel
 BuildRequires:	openldap-devel >= 2.0.0
@@ -43,34 +42,35 @@ embora um pouco limitados.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
-%patch2 -p1
 
 %build
 rm -f missing
 %{__aclocal}
 %{__autoconf}
+%{__autoheader}
 %{__automake}
-%configure
+%configure \
+	--enable-browser-dnd \
+	--disable-rpath \
+	--enable-cache
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
+
 install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}}
-
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
-
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}/gq.desktop
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
-
-%find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -f %{name}.lang
+%files 
 %defattr(644,root,root,755)
-%doc README* ChangeLog NEWS TODO AUTHORS
+%doc AUTHORS ChangeLog NEWS README* RELNOTES TODO 
 %attr(755,root,root) %{_bindir}/*
 %{_pixmapsdir}/*
 %{_desktopdir}/*
