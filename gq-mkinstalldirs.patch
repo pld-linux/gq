@@ -1,0 +1,12 @@
+diff -ruN gq-0.6.0beta2.org/po/Makefile.in.in gq-0.6.0beta2/po/Makefile.in.in
+--- gq-0.6.0beta2.org/po/Makefile.in.in	2002-04-24 07:03:12.000000000 +0200
++++ gq-0.6.0beta2/po/Makefile.in.in	2003-11-22 22:14:58.000000000 +0100
+@@ -29,7 +29,7 @@
+ INSTALL = @INSTALL@
+ INSTALL_DATA = @INSTALL_DATA@
+ MKINSTALLDIRS = @MKINSTALLDIRS@
+-mkinstalldirs = $(SHELL) `case "$(MKINSTALLDIRS)" in /*) echo "$(MKINSTALLDIRS)" ;; *) echo "$(top_builddir)/$(MKINSTALLDIRS)" ;; esac`
++mkinstalldirs = $(SHELL) `case "$(MKINSTALLDIRS)" in *) echo "$(MKINSTALLDIRS)" ;; *) echo "$(top_builddir)/$(MKINSTALLDIRS)" ;; esac`
+ 
+ CC = @CC@
+ GMSGFMT = @GMSGFMT@
