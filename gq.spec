@@ -11,7 +11,6 @@ Source1:	gq.desktop
 URL:		http://biot.com/gq/
 BuildRequires:	gtk+-devel >= 1.2.0
 BuildRequires:	openldap-devel
-BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
