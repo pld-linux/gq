@@ -1,17 +1,16 @@
 Summary:	Interactive graphical LDAP browser
 Summary(pl):	Klientem i przegl±darka LDAP
 Name:		gq
-Version:	0.3.1
-Release:	2
+Version:	0.4.0
+Release:	3
 License:	GPL
 Group:		Networking/Utilities
 Group(de):	Netzwerkwesen/Werkzeuge
 Group(pl):	Sieciowe/Narzêdzia
 Source0:	http://biot.com/gq/download/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
-Patch0:		%{name}-delete.patch
-Patch1:		%{name}-implicit.patch
-Patch2:		%{name}-init.patch
+Source2:	%{name}.png
+Patch0:		%{name}-init.patch
 URL:		http://biot.com/gq/
 BuildRequires:	gtk+-devel >= 1.2.0
 BuildRequires:	openldap-devel >= 2.0.0
@@ -33,8 +32,6 @@ dodawania i modyfikacji danych.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
-%patch2 -p1
 
 %build
 %configure
@@ -42,11 +39,12 @@ dodawania i modyfikacji danych.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_applnkdir}/Network/Misc
+install -d $RPM_BUILD_ROOT{%{_applnkdir}/Network/Misc,%{_pixmapsdir}}
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/Network/Misc/gq.desktop
+install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 gzip -9nf README ChangeLog NEWS TODO AUTHORS
 
@@ -58,4 +56,4 @@ rm -rf $RPM_BUILD_ROOT
 %doc *.gz
 %attr(755,root,root) %{_bindir}/*
 %{_applnkdir}/Network/Misc/gq.desktop
-%{_pixmapsdir}/gq
+%{_pixmapsdir}/*
