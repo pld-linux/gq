@@ -1,0 +1,33 @@
+--- gq-1.0beta1/po/de.po.orig	2003-11-04 00:11:32.000000000 +0100
++++ gq-1.0beta1/po/de.po	2004-04-25 22:37:23.256318104 +0200
+@@ -8,7 +8,7 @@
+ "POT-Creation-Date: 2003-11-04 00:07+0100\n"
+ "PO-Revision-Date: 2003-11-03 23:55+0100\n"
+ "Last-Translator: Peter Stamfest <peter@stamfest.at>\n"
+-"Language-Team: LANGUAGE <LL@li.org>\n"
++"Language-Team: German\n"
+ "MIME-Version: 1.0\n"
+ "Content-Type: text/plain; charset=ISO-8859-1\n"
+ "Content-Transfer-Encoding: 8bit\n"
+--- gq-1.0beta1/po/zh_CN.po.orig	2003-11-04 00:11:32.000000000 +0100
++++ gq-1.0beta1/po/zh_CN.po	2004-04-25 22:37:37.398168216 +0200
+@@ -8,7 +8,7 @@
+ "POT-Creation-Date: 2003-11-04 00:07+0100\n"
+ "PO-Revision-Date: 2003-01-04 02:58+0800\n"
+ "Last-Translator: hleil liu <hleil@yahoo.com.cn>\n"
+-"Language-Team: LANGUAGE <LL@li.org>\n"
++"Language-Team: Chinese\n"
+ "MIME-Version: 1.0\n"
+ "Content-Type: text/plain; charset=GB2312\n"
+ "Content-Transfer-Encoding: 8bit\n"
+--- gq-1.0beta1/po/cs.po.orig	2003-11-04 00:11:32.000000000 +0100
++++ gq-1.0beta1/po/cs.po	2004-04-25 22:37:06.665840240 +0200
+@@ -8,7 +8,7 @@
+ "POT-Creation-Date: 2003-11-04 00:07+0100\n"
+ "PO-Revision-Date: 2002-10-09 14:40+0200\n"
+ "Last-Translator: Tomas Dobrovolny <tomasdobrovolny@atlas.cz>\n"
+-"Language-Team: LANGUAGE <LL@li.org>\n"
++"Language-Team: Czech\n"
+ "MIME-Version: 1.0\n"
+ "Content-Type: text/plain; charset=ISO-8859-2\n"
+ "Content-Transfer-Encoding: 8bit\n"
