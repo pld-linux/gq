@@ -6,3 +6,4 @@ Icon=gq.png
 Exec=gq
 Terminal=0
 Type=Application
+# vi: encoding=utf-8
