@@ -1,0 +1,41 @@
+diff -durN gq-0.6.0beta2.orig/src/util.c gq-0.6.0beta2/src/util.c
+--- gq-0.6.0beta2.orig/src/util.c	Tue Jun 18 23:52:42 2002
++++ gq-0.6.0beta2/src/util.c	Fri Jun 28 09:59:06 2002
+@@ -257,7 +257,7 @@
+ 	 snprintf(message, sizeof(message),
+ 		  _("Password for server %s"), server->ldaphost);
+ 	 
+-	 if (query_popup(message, &ret)) {
++	 if (query_popup(message, &ret,0)) {
+ 	     if (ret) {
+ 		 strncpy(server->enteredpw, ret, 
+ 			 sizeof(server->enteredpw) - 1);
+@@ -1134,7 +1134,7 @@
+ /* pops up a dialog to retrieve user data via a GtkEntry. This
+    functions waits for the data and puts it into outbuf. */
+ 
+-int query_popup(const char *title, gchar **outbuf)
++int query_popup(const char *title, gchar **outbuf,int visible)
+ {
+      GtkWidget *window, *vbox1, *vbox2, *label, *inputbox, *button, *hbox0;
+      int rc;
+@@ -1176,6 +1176,7 @@
+ 
+      inputbox = gtk_entry_new();
+ 
++     gtk_entry_set_visibility((GtkEntry *)inputbox,visible);
+      GTK_WIDGET_SET_FLAGS(inputbox, GTK_CAN_FOCUS);
+      GTK_WIDGET_SET_FLAGS(inputbox, GTK_CAN_DEFAULT);
+      gtk_widget_show(inputbox);
+diff -durN gq-0.6.0beta2.orig/src/util.h gq-0.6.0beta2/src/util.h
+--- gq-0.6.0beta2.orig/src/util.h	Wed Jun 19 00:07:14 2002
++++ gq-0.6.0beta2/src/util.h	Fri Jun 28 09:59:38 2002
+@@ -67,7 +67,7 @@
+ struct gq_template *find_template_by_name(char *templatename);
+ void dump_mods(LDAPMod **mods);
+ const char *find_s_by_at_oid(struct ldapserver *server, const char *oid);
+-int query_popup(const char *title, gchar **outbuf);
++int query_popup(const char *title, gchar **outbuf,int visible);
+ int question_popup(const char *title, const char *question);
+ 
+ GList *get_suffixes(struct ldapserver *server);
