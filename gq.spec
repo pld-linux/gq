@@ -5,7 +5,7 @@ Summary(pt_BR):	Navegador gráfico para LDAP
 Name:		gq
 Version:	1.0
 %define	bver	beta1
-Release:	0.%{bver}.2
+Release:	0.%{bver}.3
 License:	GPL
 Group:		Networking/Utilities
 Source0:	http://dl.sourceforge.net/gqclient/%{name}-%{version}%{bver}.tar.gz
@@ -25,7 +25,7 @@ BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel >= 1:2.0.0
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel
-BuildRequires:	openldap-devel >= 2.0.0
+BuildRequires:	openldap-devel >= 2.3.0
 BuildRequires:	openssl-devel
 BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
