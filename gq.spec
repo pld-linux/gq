@@ -1,27 +1,25 @@
-# TODO: "Schema" tab crashes
 Summary:	Interactive graphical LDAP browser
 Summary(pl):	Klient i przegl±darka LDAP
 Summary(pt_BR):	Navegador gráfico para LDAP
 Name:		gq
-Version:	1.2.0
+Version:	1.2.1
 Release:	0.1
 License:	GPL
 Group:		Networking/Utilities
 Source0:	http://dl.sourceforge.net/gqclient/%{name}-%{version}.tar.gz
-# Source0-md5:	d3f974e5e1844ccfafbb6df77e7520c8
+# Source0-md5:	e56613c81e70727c20ffe9974cdc6df0
 Source1:	http://dl.sourceforge.net/gqclient/%{name}-%{version}-langpack-1.tar.gz
-# Source1-md5:	d2dfc43f6602e7c3f8178d63fb038cae
-Source2:	%{name}.desktop
-Source3:	%{name}.png
+# Source1-md5:	9429d161c91e12d000c8b0c2f6e21d63
+Source2:	%{name}.png
 Patch0:		%{name}-iconv-in-libc.patch
+Patch1:		%{name}-desktop.patch
 URL:		http://biot.com/gq/
-BuildRequires:	autoconf
-BuildRequires:	automake
 BuildRequires:	cyrus-sasl-devel
 BuildRequires:	gettext-devel
-BuildRequires:	gtk+2-devel >= 1:2.0.0
-BuildRequires:	libtool
-BuildRequires:	libxml2-devel
+BuildRequires:	gnome-keyring-devel >= 0.4.4
+BuildRequires:	gtk+2-devel >= 2:2.6.0
+BuildRequires:	libglade2-devel >= 2.0
+BuildRequires:	libxml2-devel >= 2.0
 BuildRequires:	openldap-devel >= 2.3.0
 BuildRequires:	openssl-devel
 BuildRequires:	pkgconfig
@@ -46,24 +44,23 @@ embora um pouco limitados.
 
 %prep
 %setup -q -a1
-cp %{name}-%{version}-langpack-1/po/* po/
+cp %{name}-%{version}-langpack-1/po/* po
 %patch0 -p1
+%patch1 -p1
 
 %build
-ALL_LINGUAS=`cat po/LINGUAS`
-%configure --enable-browser-dnd \
+%configure \
+	--enable-browser-dnd \
 	--disable-update-mimedb
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install %{SOURCE2} $RPM_BUILD_ROOT%{_desktopdir}/gq.desktop
-install %{SOURCE3} $RPM_BUILD_ROOT%{_pixmapsdir}
+install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %find_lang %{name}
 
