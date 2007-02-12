@@ -1,6 +1,6 @@
 Summary:	Interactive graphical LDAP browser
-Summary(pl):	Klientem i przegl±darka LDAP
-Summary(pt_BR):	Navegador gráfico para LDAP
+Summary(pl.UTF-8):   Klientem i przeglÄ…darka LDAP
+Summary(pt_BR.UTF-8):   Navegador grÃ¡fico para LDAP
 Name:		gq
 Version:	1.0beta1
 Release:	1
@@ -27,16 +27,16 @@ GQ is GTK+ LDAP client and browser utility. It can be used for
 searching LDAP directory as well as browsing it using tree view. It
 has limited modify/add functionality, too.
 
-%description -l pl
-GQ jest napisanym przy u¿yciu GTK+ klientem oraz przegl±dark± LDAP.
-Mo¿na go uzyæ do przeszukiwania katalogu LDAP oraz przegl±dania go w
-formie drzewa. Posiada równie¿ (w ograniczonym stopniu) mo¿liwo¶æ
+%description -l pl.UTF-8
+GQ jest napisanym przy uÅ¼yciu GTK+ klientem oraz przeglÄ…darkÄ… LDAP.
+MoÅ¼na go uzyÄ‡ do przeszukiwania katalogu LDAP oraz przeglÄ…dania go w
+formie drzewa. Posiada rÃ³wnieÅ¼ (w ograniczonym stopniu) moÅ¼liwoÅ›Ä‡
 dodawania i modyfikacji danych.
 
-%description -l pt_BR
-GQ é um client LDAP feito em GTK+. Ele pode ser usado para pesquisar
-diretórios LDAP e também para visualizar um diretório em forma de
-árvore. Também existem recursos de edição e inserção de registros,
+%description -l pt_BR.UTF-8
+GQ Ã© um client LDAP feito em GTK+. Ele pode ser usado para pesquisar
+diretÃ³rios LDAP e tambÃ©m para visualizar um diretÃ³rio em forma de
+Ã¡rvore. TambÃ©m existem recursos de ediÃ§Ã£o e inserÃ§Ã£o de registros,
 embora um pouco limitados.
 
 %prep
