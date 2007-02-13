@@ -1,6 +1,6 @@
 Summary:	Interactive graphical LDAP browser
-Summary(pl.UTF-8):   Klient i przeglądarka LDAP
-Summary(pt_BR.UTF-8):   Navegador gráfico para LDAP
+Summary(pl.UTF-8):	Klient i przeglądarka LDAP
+Summary(pt_BR.UTF-8):	Navegador gráfico para LDAP
 Name:		gq
 Version:	1.2.1
 Release:	0.1
