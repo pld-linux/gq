@@ -20,7 +20,7 @@ BuildRequires:	gnome-keyring-devel >= 0.4.4
 BuildRequires:	gtk+2-devel >= 2:2.6.0
 BuildRequires:	libglade2-devel >= 2.0
 BuildRequires:	libxml2-devel >= 2.0
-BuildRequires:	openldap-devel >= 2.3.0
+BuildRequires:	openldap-devel >= 2.4.6
 BuildRequires:	openssl-devel
 BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
