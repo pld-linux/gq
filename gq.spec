@@ -15,7 +15,7 @@ Patch0:		%{name}-iconv-in-libc.patch
 Patch1:		%{name}-desktop.patch
 URL:		http://biot.com/gq/
 BuildRequires:	cyrus-sasl-devel
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	gnome-keyring-devel >= 0.4.4
 BuildRequires:	gtk+2-devel >= 2:2.6.0
 BuildRequires:	libglade2-devel >= 2.0
